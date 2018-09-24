@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+function showUser(str) {
+  if (str=="") {
+    document.getElementById("txtHint").innerHTML="";
+    return;
+  } 
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else { // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("txtHint").innerHTML=this.responseText;
+    }
+  }
+var e = document.getElementById("view");
+var strUser = e.options[e.selectedIndex].value;
+console.log(strUser);
+var e2 = document.getElementById("Floor");
+var strUser2 = e2.options[e2.selectedIndex].value;
+var e3=document.getElementById("optradio").value;
+var e3=document.querySelector('input[name="optradio"]:checked').value;
+
+console.log(e3);
+
+console.log(strUser2);
+console.log(strUser);
+  xmlhttp.open("GET","getuser2.php?q="+strUser2+"&b="+strUser +"&c="+e3,true);
+  xmlhttp.send();
+}
+</script>
+
+ <style type="text/css">
+  .form-group{
+    margin-left: 50px;
+  }
+   a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.next {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+ </style>
+
+</head>
+<body>
+ 
+<div class="container">
+  
+  <form class="form-horizontal" method="post" action="action2.php">
+
+
+<fieldset>
+  <legend>Personal Details</legend>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="usr">First Name</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="first_name" placeholder="eg: John" name="first_name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="usr">Middle Name:</label>
+      <div class="col-sm-4">          
+        <input type="text" class="form-control" id="middle_name" placeholder="eg: Christ" name="middle_name">
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="usr">Last Name:</label>
+      <div class="col-sm-4">          
+        <input type="text" class="form-control" id="last_name" placeholder="eg: Dcruz" name="last_name">
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="usr">Email:</label>
+      <div class="col-sm-6">          
+        <input type="email" class="form-control" id="Email" placeholder="eg: 123@gmail.com" name="Email">
+      </div>
+    </div>
+
+<div class="form-group">
+   <label class="control-label col-sm-2" for="Phone">Phone No:</label>
+  <div class="col-sm-4">    
+  <div class="input-group">
+    <span class="input-group-addon">+91</span>
+    <input id="p_no" type="text" class="form-control" name="p_no" placeholder="Phone">
+ </div>
+</div>
+</div>
+
+    <div class="form-group">
+       <label class="control-label col-sm-2" for="date">Check In:</label>
+    <div class="col-sm-4">
+
+      <input type="date" size="60" class="form-control" name="c_in" id="c_in">
+    </div>
+    </div>
+     <div class="form-group">
+       <label class="control-label col-sm-2" for="date">Check Out:</label>
+    <div class="col-sm-4">
+      
+      <input type="date" size="60" class="form-control" name="c_out" id="c_out">
+    </div>
+    </div>
+
+
+<div class="form-group">
+   <label class="control-label col-sm-2" for="Street">Street:</label>
+  <div class="col-sm-4">    
+  <div class="input-group">
+    <input id="Street" type="text" class="form-control" name="Street" placeholder="eg:Phoenix Street">
+ </div>
+</div>
+</div>
+
+
+
+<div class="form-group">
+   <label class="control-label col-sm-2" for="Phone">City:</label>
+  <div class="col-sm-4">    
+  <div class="input-group">
+
+    <input id="City" type="text" class="form-control" name="City" placeholder="eg: Bengaluru">
+ </div>
+</div>
+</div>
+
+
+<div class="form-group">
+   <label class="control-label col-sm-2" for="Phone">State:</label>
+  <div class="col-sm-4">    
+  <div class="input-group">
+      <input id="State" type="text" class="form-control" name="State" placeholder="eg: Maharashtra">
+ </div>
+</div>
+</div>
+
+
+<div class="form-group">
+   <label class="control-label col-sm-2" for="Phone">Zip Code:</label>
+  <div class="col-sm-4">    
+  <div class="input-group">
+      <input id="zip" type="text" class="form-control" name="zip" placeholder="eg:400708">
+ </div>
+</div>
+</div>
+
+
+</fieldset> 
+
+
+
+<fieldset>
+  <legend>Room Details</legend>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Select Type:</label>
+    <div class="radio">
+      <label><input type="radio" name="optradio" id="optradio" value="ac" checked>AC</label>
+
+      <label><input type="radio" value="non-ac" id="optradio" name="optradio">NON-AC</label>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">
+        Select preferred view:
+      </label>
+      <select name="view" id="view" onchange="showUser(this.value);">
+        <option value="" selected>Select One</option>
+        <option value="terrace">Terrace</option>
+        <option value="balcony">Balcony</option>
+        <option value="garden">Garden</option>
+        <option value="lake">Lake</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2">
+        Select Floor:
+      </label>
+      <select name="Floor" id="Floor" onchange="showUser(this.value)">
+        <option value="" selected>Select One</option>
+        <option value="1">First</option>
+        <option value="2">Second</option>
+        <option value="3">Third</option>
+        <option value="4">Fourth</option>
+      </select>
+    </div>
+
+ </fieldset>
+
+
+<div id="txtHint">
+  
+</div>
+
+
+<div id="txtHint2">
+  
+</div>
+ <br>
+ <br>
+   <div>
+      <span class="col-sm-2"></span>
+      <button type="submit" class="btn btn-success" >Submit</button>
+    </div>
+
+
+ </form>
+
+
+
+
+</div>
+
+
+
+
+</body>
+</html>

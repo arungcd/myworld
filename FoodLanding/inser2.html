@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+	.form-group{
+		margin-left: 50px;
+	}
+</style>
+
+<script>
+function showUser(str) {
+  if (str=="") {
+    document.getElementById("txtHint").innerHTML="";
+    return;
+  } 
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else { // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("txtHint").innerHTML=this.responseText;
+    }
+  }
+var e = document.getElementById("view");
+var strUser = e.options[e.selectedIndex].value;
+console.log(strUser);
+var e2 = document.getElementById("Floor");
+var strUser2 = e2.options[e2.selectedIndex].value;
+var e3=document.getElementById("optradio").value;
+var e3=document.querySelector('input[name="optradio"]:checked').value;
+
+console.log(e3);
+
+console.log(strUser2);
+console.log(strUser);
+  xmlhttp.open("GET","getuser2.php?q="+strUser2+"&b="+strUser +"&c="+e3,true);
+  xmlhttp.send();
+}
+</script>
+
+</head>
+<body>
+	  <form action="action2.php" method="post">
+	  	<div class="form-group">
+	  		<label class="control-label col-sm-2">Select Type:</label>
+	  		<br>
+	  		<span></span>
+    <div class="radio">
+      <label><input type="radio" name="optradio" id="optradio" value="ac" checked>AC</label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" value="non-ac" id="optradio" name="optradio">NON-AC</label>
+    </div>
+    </div>
+
+    <div class="form-group">
+    	<label class="control-label col-sm-2">
+    		Select preferred view:
+    	</label>
+    	<select name="view" id="view" onchange="showUser(this.value);">
+    		<option value="" selected>Select One</option>
+    		<option value="terrace">Terrace</option>
+    		<option value="balcony">Balcony</option>
+    		<option value="garden">Garden</option>
+    		<option value="lake">Lake</option>
+    	</select>
+    </div>
+
+    <div class="form-group">
+    	<label class="control-label col-sm-2">
+    		Select Floor:
+    	</label>
+    	<select name="Floor" id="Floor" onchange="showUser(this.value)">
+    		<option value="" selected>Select One</option>
+    		<option value="1">First</option>
+    		<option value="2">Second</option>
+    		<option value="3">Third</option>
+    		<option value="4">Fourth</option>
+    	</select>
+    </div>
+
+    <div>
+    	<span class="col-sm-2"></span>
+    	<button type="submit" class="btn btn-success" >Submit</button>
+    </div>
+
+<div id="txtHint">
+  
+</div>
+
+</form>
+</body>
+</html>

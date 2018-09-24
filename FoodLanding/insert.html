@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+ <style type="text/css">
+   a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.next {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+ </style>
+
+</head>
+<body>
+ 
+<div class="container">
+  
+  <form class="form-horizontal" method="post" action="action2.php">
+
+
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="usr">First Name</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="first_name" placeholder="eg: John" name="first_name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="usr">Middle Name:</label>
+      <div class="col-sm-4">          
+        <input type="text" class="form-control" id="middle_name" placeholder="eg: Christ" name="middle_name">
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="usr">Last Name:</label>
+      <div class="col-sm-4">          
+        <input type="text" class="form-control" id="last_name" placeholder="eg: Dcruz" name="last_name">
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="usr">Email:</label>
+      <div class="col-sm-6">          
+        <input type="email" class="form-control" id="Email" placeholder="eg: 123@gmail.com" name="Email">
+      </div>
+    </div>
+
+<div class="form-group">
+   <label class="control-label col-sm-2" for="Phone">Phone No:</label>
+  <div class="col-sm-4">    
+  <div class="input-group">
+    <span class="input-group-addon">+91</span>
+    <input id="p_no" type="text" class="form-control" name="p_no" placeholder="Phone">
+ </div>
+</div>
+</div>
+
+    <div class="form-group">
+       <label class="control-label col-sm-2" for="date">Check In:</label>
+    <div class="col-sm-4">
+
+      <input type="date" size="60" class="form-control" name="c_in" id="c_in">
+    </div>
+    </div>
+     <div class="form-group">
+       <label class="control-label col-sm-2" for="date">Check Out:</label>
+    <div class="col-sm-4">
+      
+      <input type="date" size="60" class="form-control" name="c_out" id="c_out">
+    </div>
+    </div>
+
+
+<div class="form-group">
+   <label class="control-label col-sm-2" for="Street">Street:</label>
+  <div class="col-sm-4">    
+  <div class="input-group">
+    <input id="Street" type="text" class="form-control" name="Street" placeholder="eg:Phoenix Street">
+ </div>
+</div>
+</div>
+
+
+
+<div class="form-group">
+   <label class="control-label col-sm-2" for="Phone">City:</label>
+  <div class="col-sm-4">    
+  <div class="input-group">
+
+    <input id="City" type="text" class="form-control" name="City" placeholder="eg: Bengaluru">
+ </div>
+</div>
+</div>
+
+
+<div class="form-group">
+   <label class="control-label col-sm-2" for="Phone">State:</label>
+  <div class="col-sm-4">    
+  <div class="input-group">
+      <input id="State" type="text" class="form-control" name="State" placeholder="eg: Maharashtra">
+ </div>
+</div>
+</div>
+
+
+<div class="form-group">
+   <label class="control-label col-sm-2" for="Phone">Zip Code:</label>
+  <div class="col-sm-4">    
+  <div class="input-group">
+      <input id="zip" type="text" class="form-control" name="zip" placeholder="eg:400708">
+ </div>
+</div>
+</div>
+<div class="form-group"><input type="submit" name="submit" value="submit">
+</div>
+
+
+  </form>
+
+
+
+
+</div>
+<div class="container-fluid" >
+
+<a href="#" class="previous">&laquo; Previous</a>
+<a href="inser2.html" class=" next">Next &raquo;</a>
+</div>
+
+
+
+
+</body>
+</html>

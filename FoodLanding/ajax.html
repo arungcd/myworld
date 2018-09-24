@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+    $('#customer').on('change', function (){
+        $.getJSON('select.php', {customerId: $(this).val()}, function(data){
+            var options = '';
+            for (var x = 0; x < data.length; x++) {
+                options += '<option value="' + data[x]['id'] + '">' + data[x]['reg'] + '</option>';
+            }
+            $('#vehicle').html(options);
+        });
+    });
+});
+</script>
+</head>
+<body>
+	<select id="customer">
+                <?php
+        $sql = <<<SQL
+        SELECT *
+        FROM `customers`
+        SQL;
+        if(!$result = $db->query($sql)){ die('There was an error running the query [' . $db->error . ']');}
+        while($row = $result->fetch_assoc()){
+        if ($row['bussinessname'] == ''){$name = $row['title'].' '.$name = $row['firstname'].' '.$name = $row['surname'];}else
+        {$name = $row['bussinessname'];}
+        echo '<option value="'.$row['customerID'].'">'.$name.'</option>';
+        }
+        echo '</select></p>'; ?>
+        </select>
+        <select id="vehicle">
+                </select>
+
+</body>
+</html>
