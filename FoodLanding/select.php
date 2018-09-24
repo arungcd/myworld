@@ -3,7 +3,7 @@
 
       error_reporting(E_ALL ^ E_DEPRECATED);
       $username = "root";
-      $password = "Shishu2018@";
+      $password = "gvhfhgfhkfh@";
       $host = "localhost";
 
       $connector = mysql_connect($host,$username,$password)
